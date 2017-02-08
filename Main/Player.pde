@@ -86,11 +86,67 @@ class Player
     //Use boolean variables to work with collision map to generate a path you can walk on
     if (keyCode == LEFT)
     {
+      //Checking if within the map boundaries
+      if (xpos >= half_size + speed)
+      {
+      
+        //Checking all four corners 
+        up_left = collision_map[xpos - speed - half_size][ypos - half_size];
+        up_right = collision_map[xpos - speed + half_size][ypos - half_size];
+        down_left = collision_map[xpos - speed - half_size][ypos + half_size];
+        down_right = collision_map[xpos - speed + half_size][ypos + half_size];
+      
+        //Check if all are true before moving
+        if (up_left && up_right && down_left && down_right)
+        {
+          //Move left
+          xpos -=speed;
+        
+          //When moving left at center there will be the portal
+          if (xpos <= 15)
+          {
+            xpos = width - 15;
+          }
+        }
+      }
+    }
+    
+    //Code is just copied for each direction
+    if (keyCode == RIGHT)
+    {
+      if (xpos <= width - half_size - speed)
+      {
+      
       //Checking all four corners 
-      up_left = collision_map[xpos - speed - half_size][ypos - half_size];
-      up_right = collision_map[xpos - speed + half_size][ypos - half_size];
-      down_left = collision_map[xpos - speed - half_size][ypos + half_size];
-      down_right = collision_map[xpos - speed + half_size][ypos + half_size];
+      up_left = collision_map[xpos + speed - half_size][ypos - half_size];
+      up_right = collision_map[xpos + speed + half_size][ypos - half_size];
+      down_left = collision_map[xpos + speed + half_size][ypos + half_size];
+      down_right = collision_map[xpos + speed - half_size][ypos + half_size];
+      
+      //Check if all are true before moving
+      if (up_left && up_right && down_left && down_right)
+      {
+        //Move left
+        xpos +=speed;
+        
+        //When moving left at center there will be the portal
+        if (xpos >= width - 15)
+        {
+          xpos = 15;
+        }
+      }
+      }
+    }
+    
+    if (keyCode == DOWN)
+    {
+      if (ypos <= height - half_size - speed)
+      {
+      //Checking all four corners 
+      up_left = collision_map[xpos - half_size][ypos + speed - half_size];
+      up_right = collision_map[xpos + half_size][ypos + speed - half_size];
+      down_left = collision_map[xpos + half_size][ypos + speed + half_size];
+      down_right = collision_map[xpos - half_size][ypos + speed + half_size];
       
       //Check if all are true before moving
       if (up_left && up_right && down_left && down_right)
@@ -104,8 +160,34 @@ class Player
           xpos = width - 15;
         }
       }
-
-
+    }
+    }
+    
+    
+    //Finally last of validation of map boundaries
+    if (keyCode == UP)
+    {
+      if (ypos >= half_size + speed)
+      {
+      //Checking all four corners 
+      up_left = collision_map[xpos - half_size][ypos - speed - half_size];
+      up_right = collision_map[xpos + half_size][ypos - speed - half_size];
+      down_left = collision_map[xpos + half_size][ypos - speed + half_size];
+      down_right = collision_map[xpos - half_size][ypos - speed + half_size];
+      
+      //Check if all are true before moving
+      if (up_left && up_right && down_left && down_right)
+      {
+        //Move left
+        xpos -=speed;
+        
+        //When moving left at center there will be the portal
+        if (xpos <= 15)
+        {
+          xpos = width - 15;
+        }
+      }
+    }
     }
   }
   
