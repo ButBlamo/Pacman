@@ -17,6 +17,12 @@ class Player
   //Void update variables
   boolean up_left, up_right, down_left, down_right;
   
+  
+  //Boolean and arcs will be used to get the mouth affects for pacman
+  float mouth_angle;
+  float mouth_change;
+  boolean is_opening;
+  
   //Default constructor
   Player()
   {
@@ -39,6 +45,12 @@ class Player
     up_right = false;
     down_left = false;
     down_right = false;
+    
+    
+    //Mouth variables
+    this.mouth_angle = 0;
+    this.mouth_change = TWO_PI / 180;
+    this.is_opening = true;
   }
   
   //Collision map generation through nested for loops with boolean 2darray
@@ -107,6 +119,10 @@ class Player
           {
             xpos = width - 15;
           }
+          
+          //Displaying pacman left
+          face_left();
+          
         }
       }
     }
@@ -134,6 +150,9 @@ class Player
         {
           xpos = 15;
         }
+        
+        //Displaying pacman right
+        face_right();
       }
       }
     }
@@ -159,6 +178,9 @@ class Player
         {
           xpos = width - 15;
         }
+        
+        //Displaying pacman down
+        face_down();
       }
     }
     }
@@ -186,9 +208,55 @@ class Player
         {
           xpos = width - 15;
         }
+        
+        //Call for arc displaying pacman up
+        face_up();
       }
     }
     }
   }
+  
+  //Make functions for displaying pacman facing in various directions
+  void face_left()
+  {
+    fill(255, 255, 0);
+    
+    if (is_opening == true)
+    {
+      mouth_angle += mouth_change;
+    }
+    else
+    {
+      mouth_angle -= mouth_change;
+    }
+    
+    if (mouth_angle >= TWO_PI / 8 || mouth_angle <= 0) 
+    {
+      is_opening = !is_opening;
+    }
+    
+  }
+  
+  
+  void face_right()
+  {
+    fill(255, 255, 0);
+
+  }
+  
+  
+  void face_up()
+  {
+    fill(255, 255, 0);
+
+  }
+  
+  
+  void face_down()
+  {
+    fill(255, 255, 0);
+
+  }
+  
   
 }

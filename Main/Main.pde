@@ -25,6 +25,6 @@ void draw()
     
     pacman.draw_map();
     
-    arc(width - 20, 234,  25, 25, 0, TWO_PI);
+    
   }
 }
