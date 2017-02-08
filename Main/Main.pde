@@ -1,6 +1,7 @@
 Menu main_menu = new Menu();
 Player pacman;
 Laser laser_medium = new Laser();
+PImage pacman_dead;
 
 //Global for holding xpos ypos value for laser
 int laser_player_pos[] = new int[2];
@@ -19,6 +20,8 @@ void setup()
   pacman.generate_collision_map();
   background(0);
   size(1024, 1024);
+  pacman_dead = loadImage("pacman_dead.png");
+  
   
 }
 
@@ -48,6 +51,7 @@ void draw()
     if (game_over == 1)
     {
       laser_medium.game_over();
+      image(pacman_dead, 100, height / 2);
     }
       
     
