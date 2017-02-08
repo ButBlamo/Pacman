@@ -134,6 +134,7 @@ class Player extends Food
           
         }
       }
+          arc(xpos, ypos, size, size, 0 + mouth_angle, TWO_PI - mouth_angle);
     }
     
     //Code is just copied for each direction
@@ -163,6 +164,7 @@ class Player extends Food
         //Displaying pacman right
         face_right();
       }
+          arc(xpos, ypos, size, size, 0 + mouth_angle, TWO_PI - mouth_angle);
       }
     }
     
@@ -192,6 +194,7 @@ class Player extends Food
         face_down();
       }
     }
+        arc(xpos, ypos, size, size, 0 + mouth_angle, TWO_PI - mouth_angle);
     }
     
     
@@ -221,6 +224,7 @@ class Player extends Food
         //Call for arc displaying pacman up
         face_up();
       }
+          arc(xpos, ypos, size, size, 0 + mouth_angle, TWO_PI - mouth_angle);
     }
     }
   }
@@ -315,6 +319,30 @@ class Player extends Food
     
     arc(xpos, ypos, size, size, 0 + mouth_angle, TWO_PI - mouth_angle);
 
+  }
+  
+  
+  //Food methods
+    void spawn_food()
+  {
+    if (is_spawned == false)
+    {
+      do
+      {
+        fill(255);
+        foodX = (int)random(width);
+        foodY = (int)random(height);
+        ellipse(foodX, foodY, 10, 10);
+      
+      }while (collision_map[foodX][foodY]);
+      
+      is_spawned = true;
+    }//End if
+    
+    if (is_spawned == true)
+    {
+      ellipse(foodX, foodY, 10, 10);
+    }
   }
   
   

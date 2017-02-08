@@ -27,6 +27,8 @@ void draw()
     
     pacman.update();
     
+    pacman.spawn_food();
+    
     
   }
 }
