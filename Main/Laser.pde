@@ -51,7 +51,7 @@ class Laser extends Menu
         is_laser_firing = false;
       }
     
-    if (laserX == temp[0] || laserX - temp[0] >= 30 || laserX - temp[0] <= 30 )
+    if (is_between((int)laserX, temp ))
     {
       hurt();
       
@@ -59,11 +59,22 @@ class Laser extends Menu
   }
   
   
-  int hurt()
+   void hurt()
   {
+    
+    if (lives > 0)
+    {
     println("Ow");
     //Reduce players lives
-    return lives;
+    lives--;
+    
+    if (lives == 0)
+    {
+      game_over();
+    }
+    }
+    
+
     
       
   }
@@ -73,6 +84,9 @@ class Laser extends Menu
       background(0);
       textSize(rW * 2);
       text("Game over! ;(", width / 8, height / 6);
+      //Global var given value
+      game_over = 1;
+      
   }
   
   boolean is_between(int laserX, int temp[])

@@ -9,6 +9,8 @@ int laser_player_pos[] = new int[2];
 //Lives counter
 int lives;
 
+int game_over = 0;
+
 
 void setup()
 {
@@ -42,6 +44,12 @@ void draw()
     pacman.display_score();
     
     laser_medium.laser_fire_medium(laser_player_pos);
+    
+    if (game_over == 1)
+    {
+      laser_medium.game_over();
+    }
+      
     
     
   }
