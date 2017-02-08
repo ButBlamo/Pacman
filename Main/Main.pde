@@ -29,6 +29,10 @@ void draw()
     
     pacman.spawn_food();
     
+    pacman.food_touched();
+    
+    pacman.display_score();
+    
     
   }
 }

@@ -102,6 +102,9 @@ class Player extends Food
   //Update method for each game frame
   void update()
   {
+    fill(255, 255, 0);
+    arc(xpos, ypos, size, size, 0 + mouth_angle, TWO_PI - mouth_angle);
+    
     //Use boolean variables to work with collision map to generate a path you can walk on
     if (keyCode == LEFT)
     {
@@ -136,8 +139,6 @@ class Player extends Food
       }
           arc(xpos, ypos, size, size, 0 + mouth_angle, TWO_PI - mouth_angle);
     }
-     //may need to remove
-     arc(xpos, ypos, size, size, 0 + mouth_angle, TWO_PI - mouth_angle);
     
     //Code is just copied for each direction
     if (keyCode == RIGHT)
@@ -343,23 +344,27 @@ class Player extends Food
     
     if (is_spawned == true)
     {
-      ellipse(foodX, foodY, 10, 10);
+      fill(255);
+      ellipse(foodX, foodY, 15, 15);
     }
   }
   
   void food_touched()
   {
-    if (dist(xpos, ypos, foodX, foodY) < 10)
+    if (dist(xpos, ypos, foodX, foodY) < 30)
     {
       //Give player a point
       score += 5;
+      is_spawned = false;
+      
+      println(dist(xpos, ypos, foodX, foodY));
     }
   }
   
   void display_score()
   {
     fill(255);
-    text(score, 10,10);
+    text(score, 40,100);
     
   }
   
