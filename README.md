@@ -38,3 +38,10 @@ My main accomplishments were:
   Big room for improvement:
   
   I really need to sort out my time management skills. It is a crux for my assignments and I feel that If I used the bountiful time you   provided to me I could make something awesome! It is a big character flaw I need to work on.
+  
+  
+  VIDEO LINK
+  
+  last time I tried embed it failed. Here is the url.
+  
+  https://www.youtube.com/watch?v=7x5kyHLZPHA&feature=youtu.be&ab_channel=Toerag
