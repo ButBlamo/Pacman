@@ -17,12 +17,18 @@ class Menu
     lives = 3;
     is_game_started = false;
     
-    r1X = width / 4;
-    r1Y = height / 4;
+    r1X = width / 2 ;
+    r1Y = height / 2.0f;
     
-    rW = width / 6;
-    rH = height / 6;
+    rW = width / 4.0f;
+    rH = height / 4.0f;
     
+  }
+  
+  void update_screen()
+  {
+    r1X = width / 3;
+    r1Y = height / 3;
   }
   
   //Displaying menu
@@ -37,17 +43,18 @@ class Menu
           background(0);
           return;
         }
-        fill(255, 0, 0);
+        fill(0, 0, 255);
         
       }
       else
       {
-        fill(0);
+        fill(255);
       }
       rect(r1X, r1Y, rW, rH);
       //Text
-      textSize(rH / 4);
-      text("Start game", r1X, r1Y - 35);
+      textSize(rW);
+      text("Start game", r1X, r1Y);
+      println(r1Y);
     
   }
   
