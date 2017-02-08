@@ -11,21 +11,34 @@ class Player
   color black;
   color read_colour;
   
+  //Draw map variable
+  boolean is_map_drawn;
+  
   //Void update variables
   boolean up_left, up_right, down_left, down_right;
   
   //Default constructor
   Player()
   {
+    this.xpos = 358;
+    this.ypos = 377;
     this.speed = 4;
     this.size = width / 20;
     this.half_size = size / 2;
+    
+    is_map_drawn = false;
     
     this.collision_image = loadImage("pacman_map.jpg");
     
     collision_map = new boolean[collision_image.width][collision_image.height];
     
     black = color(0);
+    
+    //Default values of collision validation variables are false
+    up_left = false;
+    up_right = false;
+    down_left = false;
+    down_right = false;
   }
   
   //Collision map generation through nested for loops with boolean 2darray
@@ -54,12 +67,46 @@ class Player
     }
   }
   
+  //Fxn for drawing map
+  void draw_map()
+  {
+    if (this.is_map_drawn == false)
+    {
+      image(collision_image , 0, 0, width, height);
+      this.is_map_drawn = true;
+    }
+    
+    
+  }
+  
   
   //Update method for each game frame
   void update()
   {
     //Use boolean variables to work with collision map to generate a path you can walk on
-    
+    if (keyCode == LEFT)
+    {
+      //Checking all four corners 
+      up_left = collision_map[xpos - speed - half_size][ypos - half_size];
+      up_right = collision_map[xpos - speed + half_size][ypos - half_size];
+      down_left = collision_map[xpos - speed - half_size][ypos + half_size];
+      down_right = collision_map[xpos - speed + half_size][ypos + half_size];
+      
+      //Check if all are true before moving
+      if (up_left && up_right && down_left && down_right)
+      {
+        //Move left
+        xpos -=speed;
+        
+        //When moving left at center there will be the portal
+        if (xpos <= 15)
+        {
+          xpos = width - 15;
+        }
+      }
+
+
+    }
   }
   
 }
