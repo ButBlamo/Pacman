@@ -45,3 +45,6 @@ My main accomplishments were:
   last time I tried embed it failed. Here is the url.
   
   https://www.youtube.com/watch?v=7x5kyHLZPHA&feature=youtu.be&ab_channel=Toerag
+  
+  
+  SCOREBOARD AND LIVES (top and bottom) top left of screen
