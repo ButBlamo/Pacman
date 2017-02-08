@@ -2,6 +2,7 @@ class Laser extends Menu
 {
   float laserX, laserY;
   int initialX, initialY;
+  boolean is_laser_firing;
   
   
   Laser()
@@ -11,6 +12,8 @@ class Laser extends Menu
     
     initialX = 0;
     initialY = 0;
+    
+    is_laser_firing = false;
   }
   
   
@@ -23,13 +26,20 @@ class Laser extends Menu
     }
     
     //Random every 3 seconds
+    if (is_laser_firing == false)
+    {
     if (random(0, 10) <= 3)
     {
-      laserX = random(30, width);
+        laserX = random(30, width);
+        is_laser_firing = true;
+    }
+    }
       
       //make a red dot to warn player
+
       fill(255, 0, 0);
-      ellipse(laserX, laserY, 20, 20);
+      ellipse(laserX, laserY, 40, 40);
+
       
       //2 seconds after
       if (frameCount % 120 == 0)
@@ -37,42 +47,33 @@ class Laser extends Menu
         strokeWeight(10);
         line(laserX, laserY, laserX, height);
         strokeWeight(1);
+        
+        is_laser_firing = false;
       }
-    }
     
-    if (dist(laserX, laserY, temp[0], temp[0]) < 30)
+    if (dist(laserX, laserY, temp[0], temp[1]) < 30)
     {
       hurt();
-    }
-  }
-  
-  
-  void hurt()
-  {
-    //Reduce players lives
-    if (lives > 0)
-    {
-      lives--;
       
-      //Check if dead
-      if (lives == 0)
-      {
-        game_over();
-      }
-      else
-      {
-        respawn();
-      }
     }
+          println(dist(laserX, laserY, temp[0], temp[1]));
   }
   
-  void respawn(int temp[])
+  
+  int hurt()
   {
+    println("Ow");
+    //Reduce players lives
+    return lives;
     
-    //Set xpos and ypos (named initialX and initialY to original position)
-    temp[0] = initialX;
-    temp[1] = initialY;
-    
+      
+  }
+  
+  void game_over()
+  {
+      background(0);
+      textSize(rW * 2);
+      text("Game over! ;(", width / 8, height / 6);
   }
   
 }

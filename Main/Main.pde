@@ -6,6 +6,10 @@ Laser laser_medium = new Laser();
 int laser_player_pos[] = new int[2];
 
 
+//Lives counter
+int lives;
+
+
 void setup()
 {
   pacman = new Player();
