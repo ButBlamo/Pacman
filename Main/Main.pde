@@ -1,10 +1,12 @@
+import processing.sound.*;
+SoundFile file2;
+
+
+
 Menu main_menu = new Menu();
 Player pacman;
 Laser laser_medium = new Laser();
 PImage pacman_dead;
-
-import processing.sound;
-SoundFile file;
 
 //Global for holding xpos ypos value for laser
 int laser_player_pos[] = new int[2];
@@ -24,6 +26,10 @@ void setup()
   background(0);
   size(1024, 1024);
   pacman_dead = loadImage("pacman_dead.png");
+  
+  file2 = new SoundFile(this, "pacman_death.wav");
+  
+
   
   
 }
@@ -51,10 +57,13 @@ void draw()
     
     laser_medium.laser_fire_medium(laser_player_pos);
     
+    
     if (game_over == 1)
-    {
+    {      
       laser_medium.game_over();
       image(pacman_dead, 100, height / 2);
+      
+
     }
       
     

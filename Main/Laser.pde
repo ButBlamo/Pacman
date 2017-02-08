@@ -74,6 +74,7 @@ class Laser extends Menu
     if (lives == 0)
     {
       delay(1000);
+      file2.play();
       game_over();
     }
     }
