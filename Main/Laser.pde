@@ -51,12 +51,11 @@ class Laser extends Menu
         is_laser_firing = false;
       }
     
-    if (dist(laserX, laserY, temp[0], temp[1]) < 30)
+    if (laserX == temp[0] || laserX - temp[0] >= 30 || laserX - temp[0] <= 30 )
     {
       hurt();
       
     }
-          println(dist(laserX, laserY, temp[0], temp[1]));
   }
   
   
@@ -76,4 +75,21 @@ class Laser extends Menu
       text("Game over! ;(", width / 8, height / 6);
   }
   
+  boolean is_between(int laserX, int temp[])
+  {
+    if (laserX - temp[0] == 10 || laserX - temp[0] == 9 || laserX - temp[0] == 8  || laserX - temp[0] == 7
+         || laserX - temp[0] == 6  || laserX - temp[0] == 5  || laserX - temp[0] == 4  || laserX - temp[0] == 3
+          || laserX - temp[0] == 2  || laserX - temp[0] == 1  || laserX - temp[0] == 0
+           || laserX - temp[0] == -10  || laserX - temp[0] == -9  || laserX - temp[0] == -8 
+            || laserX - temp[0] == -7  || laserX - temp[0] == -6  || laserX - temp[0] == -5
+             || laserX - temp[0] == -4  || laserX - temp[0] == -3  || laserX - temp[0] == -2
+              || laserX - temp[0] == -1)
+      {
+        return true;
+      }
+      else
+      {
+        return false;
+      }
+  }
 }

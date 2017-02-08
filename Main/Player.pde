@@ -356,7 +356,7 @@ class Player extends Food
   
   void food_touched()
   {
-    if (dist(xpos, ypos, foodX, foodY) < 30)
+    if (dist(xpos, ypos, foodX, foodY) < 40)
     {
       //Give player a point
       score += 5;
