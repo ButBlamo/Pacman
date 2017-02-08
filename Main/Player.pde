@@ -11,6 +11,9 @@ class Player
   color black;
   color read_colour;
   
+  //Void update variables
+  boolean up_left, up_right, down_left, down_right;
+  
   //Default constructor
   Player()
   {
@@ -49,6 +52,14 @@ class Player
         }
       }
     }
+  }
+  
+  
+  //Update method for each game frame
+  void update()
+  {
+    //Use boolean variables to work with collision map to generate a path you can walk on
+    
   }
   
 }
