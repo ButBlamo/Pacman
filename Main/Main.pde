@@ -19,4 +19,7 @@ void draw()
     main_menu.update_screen();
     main_menu.display_menu();
   }
+  else
+  {
+  }
 }
