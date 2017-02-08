@@ -136,6 +136,8 @@ class Player extends Food
       }
           arc(xpos, ypos, size, size, 0 + mouth_angle, TWO_PI - mouth_angle);
     }
+     //may need to remove
+     arc(xpos, ypos, size, size, 0 + mouth_angle, TWO_PI - mouth_angle);
     
     //Code is just copied for each direction
     if (keyCode == RIGHT)
@@ -334,7 +336,7 @@ class Player extends Food
         foodY = (int)random(height);
         ellipse(foodX, foodY, 10, 10);
       
-      }while (collision_map[foodX][foodY]);
+      }while (collision_map[foodX][foodY] && foodX > 5 );
       
       is_spawned = true;
     }//End if
@@ -344,6 +346,23 @@ class Player extends Food
       ellipse(foodX, foodY, 10, 10);
     }
   }
+  
+  void food_touched()
+  {
+    if (dist(xpos, ypos, foodX, foodY) < 10)
+    {
+      //Give player a point
+      score += 5;
+    }
+  }
+  
+  void display_score()
+  {
+    fill(255);
+    text(score, 10,10);
+    
+  }
+  
   
   
 }
