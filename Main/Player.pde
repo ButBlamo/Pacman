@@ -31,7 +31,7 @@ class Player
     this.ypos = 377;
     this.speed = 2;
     this.size = width / 36;
-    this.half_size = size / 2;
+    this.half_size = size / 4;
     
     is_map_drawn = false;
     
@@ -117,7 +117,6 @@ class Player
         {
           //Move left
           xpos -=speed;
-          println(xpos);
         
           //When moving left at center there will be the portal
           if (xpos <= 15)
