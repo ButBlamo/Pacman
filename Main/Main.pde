@@ -28,7 +28,6 @@ void setup()
   pacman_dead = loadImage("pacman_dead.png");
   
   file2 = new SoundFile(this, "pacman_death.wav");
-  
 
   
   

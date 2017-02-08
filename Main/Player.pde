@@ -350,7 +350,7 @@ class Player extends Food
     if (is_spawned == true)
     {
       fill(255);
-      ellipse(foodX, foodY, 15, 15);
+      ellipse(foodX, foodY, 30, 30);
     }
   }
   
@@ -362,7 +362,10 @@ class Player extends Food
       score += 5;
       is_spawned = false;
       
+    
+      
     }
+    
   }
   
   void display_score()
