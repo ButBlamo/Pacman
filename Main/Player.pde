@@ -29,7 +29,7 @@ class Player
     this.xpos = 358;
     this.ypos = 377;
     this.speed = 4;
-    this.size = width / 20;
+    this.size = width / 28;
     this.half_size = size / 2;
     
     is_map_drawn = false;
@@ -82,11 +82,9 @@ class Player
   //Fxn for drawing map
   void draw_map()
   {
-    if (this.is_map_drawn == false)
-    {
+    background(0);
       image(collision_image , 0, 0, width, height);
       this.is_map_drawn = true;
-    }
     
     
   }
@@ -107,12 +105,15 @@ class Player
         up_right = collision_map[xpos - speed + half_size][ypos - half_size];
         down_left = collision_map[xpos - speed - half_size][ypos + half_size];
         down_right = collision_map[xpos - speed + half_size][ypos + half_size];
+        
+        
       
         //Check if all are true before moving
         if (up_left && up_right && down_left && down_right)
         {
           //Move left
           xpos -=speed;
+          println(xpos);
         
           //When moving left at center there will be the portal
           if (xpos <= 15)
@@ -171,7 +172,7 @@ class Player
       if (up_left && up_right && down_left && down_right)
       {
         //Move left
-        xpos -=speed;
+        ypos +=speed;
         
         //When moving left at center there will be the portal
         if (xpos <= 15)
@@ -201,7 +202,7 @@ class Player
       if (up_left && up_right && down_left && down_right)
       {
         //Move left
-        xpos -=speed;
+        ypos -=speed;
         
         //When moving left at center there will be the portal
         if (xpos <= 15)
@@ -235,12 +236,30 @@ class Player
       is_opening = !is_opening;
     }
     
+    arc(xpos, ypos, size, size, 0 + mouth_angle, TWO_PI - mouth_angle);
+    
   }
   
   
   void face_right()
   {
     fill(255, 255, 0);
+    
+    if (is_opening == true)
+    {
+      mouth_angle += mouth_change;
+    }
+    else
+    {
+      mouth_angle -= mouth_change;
+    }
+    
+    if (mouth_angle >= TWO_PI / 8 || mouth_angle <= 0) 
+    {
+      is_opening = !is_opening;
+    }
+    
+    arc(xpos, ypos, size, size, 0 + mouth_angle, TWO_PI - mouth_angle);
 
   }
   
@@ -248,6 +267,22 @@ class Player
   void face_up()
   {
     fill(255, 255, 0);
+    
+    if (is_opening == true)
+    {
+      mouth_angle += mouth_change;
+    }
+    else
+    {
+      mouth_angle -= mouth_change;
+    }
+    
+    if (mouth_angle >= TWO_PI / 8 || mouth_angle <= 0) 
+    {
+      is_opening = !is_opening;
+    }
+    
+    arc(xpos, ypos, size, size, 0 + mouth_angle, TWO_PI - mouth_angle);
 
   }
   
@@ -255,6 +290,22 @@ class Player
   void face_down()
   {
     fill(255, 255, 0);
+    
+    if (is_opening == true)
+    {
+      mouth_angle += mouth_change;
+    }
+    else
+    {
+      mouth_angle -= mouth_change;
+    }
+    
+    if (mouth_angle >= TWO_PI / 8 || mouth_angle <= 0) 
+    {
+      is_opening = !is_opening;
+    }
+    
+    arc(xpos, ypos, size, size, 0 + mouth_angle, TWO_PI - mouth_angle);
 
   }
   

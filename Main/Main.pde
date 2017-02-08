@@ -21,9 +21,10 @@ void draw()
   }
   else
   {
-    fill(250, 250, 0);
     
     pacman.draw_map();
+    
+    pacman.update();
     
     
   }
