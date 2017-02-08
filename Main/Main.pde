@@ -7,7 +7,7 @@ void setup()
   //First generate collision map
   pacman.generate_collision_map();
   background(0);
-  size(720, 500);
+  size(1024, 1024);
   
 }
 

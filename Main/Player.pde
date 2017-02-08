@@ -23,13 +23,14 @@ class Player
   float mouth_change;
   boolean is_opening;
   
+  
   //Default constructor
   Player()
   {
     this.xpos = 358;
     this.ypos = 377;
-    this.speed = 4;
-    this.size = width / 28;
+    this.speed = 2;
+    this.size = width / 36;
     this.half_size = size / 2;
     
     is_map_drawn = false;
@@ -45,6 +46,7 @@ class Player
     up_right = false;
     down_left = false;
     down_right = false;
+    
     
     
     //Mouth variables
@@ -74,6 +76,7 @@ class Player
         else
         {
           collision_map[i][j] = false;
+          
         }
       }
     }
@@ -82,8 +85,9 @@ class Player
   //Fxn for drawing map
   void draw_map()
   {
-    background(0);
       image(collision_image , 0, 0, width, height);
+
+
       this.is_map_drawn = true;
     
     
@@ -103,8 +107,8 @@ class Player
         //Checking all four corners 
         up_left = collision_map[xpos - speed - half_size][ypos - half_size];
         up_right = collision_map[xpos - speed + half_size][ypos - half_size];
-        down_left = collision_map[xpos - speed - half_size][ypos + half_size];
-        down_right = collision_map[xpos - speed + half_size][ypos + half_size];
+        down_left = collision_map[xpos - speed + half_size][ypos + half_size];
+        down_right = collision_map[xpos - speed - half_size][ypos + half_size];
         
         
       
