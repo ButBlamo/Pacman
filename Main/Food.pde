@@ -1,14 +1,11 @@
-class Food
+class Food 
 {
-  //Food counter
-  int counter;
-  boolean[] is_deleted;
   int score;
+  boolean is_spawned;
   
-  //constructor
-  Food()
+  
+  void spawn_food()
   {
     
   }
-  
 }

@@ -1,4 +1,4 @@
-class Player
+class Player extends Food
 {
   int xpos, ypos;
   int speed;
@@ -53,6 +53,11 @@ class Player
     this.mouth_angle = 0;
     this.mouth_change = TWO_PI / 180;
     this.is_opening = true;
+    
+    
+    //Food constructor 
+    score = 0;
+    is_spawned = false;
   }
   
   //Collision map generation through nested for loops with boolean 2darray
