@@ -48,14 +48,17 @@ class Laser extends Menu
         line(laserX, laserY, laserX, height);
         strokeWeight(1);
         
+        if (is_between((int)laserX, temp ))
+        {
+          hurt();
+      
+        }
+        
         is_laser_firing = false;
+        
       }
     
-    if (is_between((int)laserX, temp ))
-    {
-      hurt();
-      
-    }
+
   }
   
   
@@ -70,6 +73,7 @@ class Laser extends Menu
     
     if (lives == 0)
     {
+      delay(1000);
       game_over();
     }
     }

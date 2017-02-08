@@ -3,6 +3,9 @@ Player pacman;
 Laser laser_medium = new Laser();
 PImage pacman_dead;
 
+import processing.sound;
+SoundFile file;
+
 //Global for holding xpos ypos value for laser
 int laser_player_pos[] = new int[2];
 
