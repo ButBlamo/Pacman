@@ -1,6 +1,9 @@
 # Daniel Moloney C15446648 Pacman game
 My pacman game
 
+arrow keys to move, click on square to start.
+
+
 It is safe to say this assignment was both really fun and really tasking.
 
 My main accomplishments were:
