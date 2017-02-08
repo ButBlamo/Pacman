@@ -13,7 +13,10 @@ void setup()
 
 void draw()
 {
-  // image(game_map, 0, 0, width, height);
-  main_menu.update_screen();
-  main_menu.display_menu();
+  if (main_menu.game_started_check() == false)
+  {
+    // image(game_map, 0, 0, width, height);
+    main_menu.update_screen();
+    main_menu.display_menu();
+  }
 }

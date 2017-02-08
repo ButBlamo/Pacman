@@ -34,6 +34,9 @@ class Menu
   //Displaying menu
   void display_menu()
   {
+      //Printing welcome to game text
+      textSize(rW * 2);
+      text("Welcome to Not-pacman!", width / 8, height / 6);
       //Checking if both mouse over certain rectangle and if mouse is pressed
       //Button to start game
       if (mouseOverRect(r1X, r1Y, rW, rH))
@@ -41,6 +44,7 @@ class Menu
         if (mousePressed == true)
         {
           background(0);
+          this.is_game_started = true;
           return;
         }
         fill(0, 0, 255);
@@ -54,8 +58,20 @@ class Menu
       //Text
       textSize(rW);
       text("Start game", r1X, r1Y);
-      println(r1Y);
     
+  }
+  
+  //Check if game started
+  boolean game_started_check()
+  {
+    if (this.is_game_started == true)
+    {
+      return true;
+    }
+    else
+    {
+      return false;
+    }
   }
   
   //Function to check if mouse is over the rectangle
