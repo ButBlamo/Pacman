@@ -1,16 +1,18 @@
 PImage game_map;
+Menu main_menu = new Menu();
 
 void setup()
 {
-  size(1280, 720);
+  background(0);
+  size(720, 500);
   //Load the game map and main menu images
   game_map = loadImage("pacman_map.jpg");
-  imageMode(CENTER);
   
 }
 
 
 void draw()
 {
-  image(game_map, width/2, height/2);
+ // image(game_map, 0, 0, width, height);
+  main_menu.display_menu();
 }
