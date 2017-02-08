@@ -37,6 +37,7 @@ class Menu
       //Printing welcome to game text
       textSize(rW * 2);
       text("Welcome to Not-pacman! Avoid lasers!", width / 8, height / 6);
+      text("Collect pellets!", width / 8, height / 4);
       //Checking if both mouse over certain rectangle and if mouse is pressed
       //Button to start game
       if (mouseOverRect(r1X, r1Y, rW, rH))

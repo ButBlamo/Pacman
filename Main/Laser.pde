@@ -19,6 +19,9 @@ class Laser extends Menu
   
   void laser_fire_medium(int[] temp)
   {
+        fill(255);
+    text(lives, 40, 250);
+    
     if (initialX == 0 && initialY == 0)
     {
       initialX = temp[0];
