@@ -1,5 +1,9 @@
 Menu main_menu = new Menu();
 Player pacman;
+Laser laser_medium = new Laser();
+
+//Global for holding xpos ypos value for laser
+int laser_player_pos[] = new int[2];
 
 
 void setup()
@@ -25,13 +29,15 @@ void draw()
     
     pacman.draw_map();
     
-    pacman.update();
+    laser_player_pos = pacman.update();
     
     pacman.spawn_food();
     
     pacman.food_touched();
     
     pacman.display_score();
+    
+    laser_medium.laser_fire_medium(laser_player_pos);
     
     
   }

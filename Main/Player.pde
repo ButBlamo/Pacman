@@ -100,7 +100,7 @@ class Player extends Food
   
   
   //Update method for each game frame
-  void update()
+  int[] update()
   {
     fill(255, 255, 0);
     arc(xpos, ypos, size, size, 0 + mouth_angle, TWO_PI - mouth_angle);
@@ -230,6 +230,10 @@ class Player extends Food
           arc(xpos, ypos, size, size, 0 + mouth_angle, TWO_PI - mouth_angle);
     }
     }
+    
+    return new int [] {xpos, ypos};
+    
+    
   }
   
   //Make functions for displaying pacman facing in various directions
@@ -321,6 +325,7 @@ class Player extends Food
     }
     
     arc(xpos, ypos, size, size, 0 + mouth_angle, TWO_PI - mouth_angle);
+    
 
   }
   
@@ -357,7 +362,6 @@ class Player extends Food
       score += 5;
       is_spawned = false;
       
-      println(dist(xpos, ypos, foodX, foodY));
     }
   }
   
