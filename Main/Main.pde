@@ -1,8 +1,12 @@
 PImage game_map;
 Menu main_menu = new Menu();
+Player pacman;
 
 void setup()
 {
+  pacman = new Player();
+  //First generate collision map
+  pacman.generate_collision_map();
   background(0);
   size(720, 500);
   //Load the game map and main menu images
